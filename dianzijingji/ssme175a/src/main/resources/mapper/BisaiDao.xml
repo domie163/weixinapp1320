@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.BisaiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BisaiEntity" id="bisaiMap">
+        <result property="zhanduimingcheng" column="zhanduimingcheng"/>
+        <result property="saiqu" column="saiqu"/>
+        <result property="zhanduijieshao" column="zhanduijieshao"/>
+        <result property="duibiaozhaopian" column="duibiaozhaopian"/>
+        <result property="zhanduichengyuan" column="zhanduichengyuan"/>
+        <result property="zhanduishuju" column="zhanduishuju"/>
+        <result property="jinqibisai" column="jinqibisai"/>
+        <result property="thumbsupnum" column="thumbsupnum"/>
+        <result property="crazilynum" column="crazilynum"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BisaiVO" >
+		SELECT * FROM bisai  bisai         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BisaiVO" >
+		SELECT  bisai.* FROM bisai  bisai
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BisaiView" >
+
+		SELECT  bisai.* FROM bisai  bisai 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BisaiView" >
+		SELECT * FROM bisai  bisai <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
